@@ -79,7 +79,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -99,7 +99,43 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        for (HashMap<String, String> row: allJobs){
+            for (String key: row.keySet()) {
+                String nameValue = row.get(key);
+                if (nameValue.toLowerCase().contains(value.toLowerCase())) {
+                    jobs.add(row);
+                    break;
+                }
+            }
+
+
+
+   //         }
+  //          String employerValue = row.get("employer");
+//
+   //         if (employerValue.toLowerCase().contains(value.toLowerCase())) {
+   //             jobs.add(row);
+  //          }
+  //          String locationValue = row.get("location");
+//
+  //          if (locationValue.toLowerCase().contains(value.toLowerCase())) {
+  //              jobs.add(row);
+//            }
+//            String positionValue = row.get("position type");
+//
+//            if (positionValue.toLowerCase().contains(value.toLowerCase())) {
+//                jobs.add(row);
+//            }
+//            String coreValue = row.get("core competency");
+//
+//            if (coreValue.toLowerCase().contains(value.toLowerCase())) {
+//                jobs.add(row);
+
+ //           }
+        }
+
+        return jobs;
     }
 
     /**
